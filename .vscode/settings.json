@@ -12,5 +12,6 @@
         "proxyUri": "http://127.0.0.1:7071/api"
     },
     "liveServer.settings.root": "/public",
-    "azureFunctions.projectSubpath": "api"
+    "azureFunctions.projectSubpath": "api",
+    "github-pr.accessToken": "2542136b6f67ac45fed5dcd5a12a69c8349820a8"
 }
