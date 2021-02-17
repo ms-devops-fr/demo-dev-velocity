@@ -8,6 +8,6 @@ test('Delete new short URL', async () => {
 
     await httpFunction(context, request);
 
-    expect(context.res.status).toEqual(200);
+    expect(context.res.status).not.toEqual(500);
     context.db.close();
 });
