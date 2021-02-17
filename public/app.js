@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 const app = new Vue({
   el: '#app',
   data: {
@@ -26,7 +24,7 @@ const app = new Vue({
       if (response.ok) {
         const result = await response.json();
         this.formVisible = false;
-        this.created = `${window.location.href}/api/${result.slug}`;
+        this.created = `${ window.location.href}/api/${result.slug}`;
       } else if (response.status === 429) {
         this.error = 'You are sending too many requests. Try again in 30 seconds.';
       } else {
@@ -34,16 +32,20 @@ const app = new Vue({
         this.error = result.message;
       }
     },
-  },
-  async deleteUrl(){
-    this.error = '';
-    const response = await axios.delete(`api/${slug}`);
-    
-    if(response.ok) {
-      this.deleted = `${slug}`;
-    } else {
-      const result = response.json();
-      this.error = result.message;
+    async deleteUrl(){
+      this.error = '';
+      const response = await fetch(`api/${this.slug}`,{
+        method: 'DELETE'
+      });
+      
+      if(response.ok) {
+        console.log(this.slug)
+        this.formVisible = false;
+        this.deleted = `${this.slug}`;
+      } else {
+        const result = response.json();
+        this.error = result.message;
+      }
     }
-  }
+  },
 });

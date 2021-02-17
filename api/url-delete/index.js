@@ -11,13 +11,11 @@ module.exports = async function (context, req) {
     const { id: slug } = req.params;
     context.db = db;
 
-    console.log({slug})
-
     try {
         slugSchema.validate(slug);
-        const { result } = await urls.remove({slug});
+        const result = await urls.remove({slug});
 
-        if(result.ok) {
+        if(result.deletedCount) {
             context.res.status = 200
         }
 
