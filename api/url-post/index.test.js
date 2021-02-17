@@ -8,9 +8,11 @@ test('Create new short URL', async () => {
 
     await httpFunction(context, request);
 
+
     expect(context.res.body).toEqual(
         expect.objectContaining({
-            slug: expect.any(String)
+            slug: expect.any(String),
+            url: expect.any(String)
         })
     );
 });

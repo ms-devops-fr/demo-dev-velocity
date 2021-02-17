@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 const app = new Vue({
   el: '#app',
   data: {
@@ -6,6 +8,7 @@ const app = new Vue({
     error: '',
     formVisible: true,
     created: null,
+    deleted: null
   },
   methods: {
     async createUrl() {
@@ -32,4 +35,15 @@ const app = new Vue({
       }
     },
   },
+  async deleteUrl(){
+    this.error = '';
+    const response = await axios.delete(`api/${slug}`);
+    
+    if(response.ok) {
+      this.deleted = `${slug}`;
+    } else {
+      const result = response.json();
+      this.error = result.message;
+    }
+  }
 });
