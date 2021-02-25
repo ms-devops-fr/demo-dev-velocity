@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   run_unit_and_integration_tests:
@@ -31,8 +34,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     needs: run_unit_and_integration_tests
-    env:
-      COMPOSE_FILE: .devcontainer/docker-compose.yml
     steps:
       - uses: actions/checkout@v2
         with:
