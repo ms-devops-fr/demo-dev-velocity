@@ -28,5 +28,5 @@
 	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "chown -R node:node . && cd api && npm install"
+	"postCreateCommand": "sudo chown -R node:node . && cd api && npm install"
 }
