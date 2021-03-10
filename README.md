@@ -2,7 +2,7 @@
 
 ## Prérequis
 
-Newly added comment in description, again
+Newly added comment in description,
 
 **Prérequis VS Dev On Container**
  - Visual Studio Code
