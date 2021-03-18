@@ -22,6 +22,8 @@
 		"ms-azuretools.vscode-docker",
 		"ms-azuretools.vscode-azurefunctions",
 		"ms-azuretools.vscode-cosmosdb",
+		"github.vscode-pull-request-github",
+		"mongodb.mongodb-vscode",
 		"ms-vscode.azurecli",
 		"ritwickdey.liveserver",
 		"redhat.vscode-yaml"
