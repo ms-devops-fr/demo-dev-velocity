@@ -6,7 +6,6 @@ const app = new Vue({
     error: '',
     formVisible: true,
     created: null,
-    deleted: null
   },
   methods: {
     async createUrl() {
@@ -32,20 +31,5 @@ const app = new Vue({
         this.error = result.message;
       }
     },
-    async deleteUrl(){
-      this.error = '';
-      const response = await fetch(`api/${this.slug}`,{
-        method: 'DELETE'
-      });
-      
-      if(response.ok) {
-        console.log(this.slug)
-        this.formVisible = false;
-        this.deleted = `${this.slug}`;
-      } else {
-        const result = response.json();
-        this.error = result.message;
-      }
-    }
   },
 });
