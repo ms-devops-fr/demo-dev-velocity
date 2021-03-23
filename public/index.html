@@ -11,16 +11,24 @@
     <img class="logo" src="https://i.imgur.com/qXe7lWg.png">
   </header>
   <main id="app">
-    <form class="form" v-if="formVisible" @submit.prevent="createUrl()">
+    <form class="form" v-if="formVisible"  @submit.prevent="">
       <div v-if="error" class="error">
         {{error}}
       </div>
       <input class="input" type="text" v-model="url" name="url" id="url" placeholder="enter a url">
       <input class="input" type="text" v-model="slug" name="slug" id="slug" placeholder="enter a slug">
-      <button type="submit" class="create">create</button>
+      <div v-if="slug && !url">
+        <button @click="deleteUrl()" type="submit" class="create">Supprimer</button>
+      </div>
+      <div v-else>
+        <button @click="createUrl()" type="submit" class="create">Créer</button>
+      </div>
     </form>
     <div v-if="created">
       <p class="created">Your short url is: <a :href="created">{{created}}</a></p>
+    </div>
+    <div v-if="deleted">
+      <p class="deleted">Your short url {{deleted}} has been deleted</p>
     </div>
   </main>
   <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
