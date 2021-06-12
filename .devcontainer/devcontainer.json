@@ -26,7 +26,8 @@
 		"mongodb.mongodb-vscode",
 		"ms-vscode.azurecli",
 		"ritwickdey.liveserver",
-		"redhat.vscode-yaml"
+		"redhat.vscode-yaml",
+		"ms-vsliveshare.vsliveshare"
 	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
